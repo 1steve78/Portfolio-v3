@@ -1,10 +1,10 @@
-import { getRepos } from "../github";
+import { getRepos, type Repo } from "../github";
 import LoadMore from "../components/LoadMore";
 
 export const metadata = { title: "Projects — Yasin Alam" };
 
 export default async function ProjectsPage() {
-  let repos = [];
+  let repos: Repo[] = [];
   let failed = false;
   try {
     repos = (await getRepos()).filter(repo => !repo.fork);
